@@ -800,5 +800,109 @@ window.onload = () => {
     console.log('\n\nFunciona como um loop for, mas é declarado de forma mais limpa e compreensível.\n\n\n');
 
 
+    console.log('%c\n\nwhile\n\n', 'background-color:#ffb42a;color:#000000;font-size:24px;');
+
+    console.log('\n\nO while funciona como no PHP, executa o código entre suas chaves enquanto sua condição for verdadeira.\n\n\n\twhile ( arr7[y] !== undefined ) {\n\n\t\tconsole.log(`\\n${arr7[y]}\\n\\n`);\n\n\t\ty++;\n\n\t}\n\n\nConsiderando arr7 como [0,1,2] e y valendo 0 (inicialmente), temos:');
+
+    y = 0;
+    arr7 = [0,1,2];
+
+    while (arr7[y] !== undefined) {
+
+        console.log(`\n${arr7[y]}\n\n`);
+
+        y++;
+
+    }
+    
+    console.log('\n\nA condição arr7[y] !== undefined foi utilizada pois ao tentar acessar um índice inexistente em um array recebemos undefined como retorno.\n\n\n');
+
+
+    console.log('%c\n\ndo while\n\n', 'background-color:#ffb42a;color:#000000;font-size:24px;');
+
+    console.log('\n\nA diferença do \'do while\' para o \'while\' é que a ação é executada antes da verificação da condição.\n\n\n\tdo {\n\n\t\tconsole.log(`\\n${arr7[y]}\\n\\n`);\n\n\t\ty++;\n\n\t} while ( arr7[y] !== undefined )\n\n\nConsiderando arr7 como [0,1,2] e y valendo 0 (inicialmente), temos:');
+
+    y = 0;
+    arr7 = [0,1,2];
+
+    do {
+
+        console.log(`\n${arr7[y]}\n\n`);
+
+        y++;
+
+    } while (arr7[y] !== undefined)
+    
+    console.log('\n\nA condição arr7[y] !== undefined foi utilizada pois ao tentar acessar um índice inexistente em um array recebemos undefined como retorno.\n\n\n');
+
+
+
+    // Aula 01 | Parte 11 - seletores
+    console.log('%c\n\nAULA 01 | PARTE 11\t\nSeletores\t\t\t\n\n', 'background-color:#f15722;color:#000000;font-size:32px;');
+
+
+    console.log('%c\n\ngetElementById\n\n', 'background-color:#ffb42a;color:#000000;font-size:24px;');
+
+    console.log('\n\nEsse seletor nos permite selecionar elementos por id.\n\n\n\tdocument.getElementById(\'tituloId\');\n\n\nConsiderando que nosso h1 possui esse id, ao declarar esse seletor (dentro de um console.log()), temos:');
+
+    console.log(document.getElementById('tituloId'));
+
+    console.log('\n\nAtenção: como só devemos ter um id por documento, esse seletor sempre traz apenas um item (por isso o seletor diz \'getElement\', no singular)\n\n\n');
+
+
+    console.log('%c\n\ngetElementsByTagName\n\n', 'background-color:#ffb42a;color:#000000;font-size:24px;');
+
+    console.log('\n\nEsse seletor nos permite selecionar elementos por tag HTML.\n\n\n\tdocument.getElementsByTagName(\'p\');\n\n\nConsiderando que temos um parágrafo em nosso documento, ao declarar esse seletor (dentro de um console.log(), temos:');
+
+    console.log(document.getElementsByTagName('p'));
+
+    console.log('\n\nAo contrário do seletor anterior, esse seletor traz um conjunto de elementos (ainda que só haja um elemento), então precisamos de um loop para acessar cada elemento retornado (por isso o seletor diz \'getElements\', no plural).\n\n\nVamos usar o loop \'for of\' para exibir cada resultado retornado:');
+
+    let paragrafos = document.getElementsByTagName('p');
+
+    for(paragrafo of paragrafos) {
+
+        console.log(paragrafo);
+
+    }
+
+
+    console.log('%c\n\ngetElementsByClassName\n\n', 'background-color:#ffb42a;color:#000000;font-size:24px;');
+
+    console.log('\n\nEsse seletor nos permite selecionar elementos por classe.\n\n\n\tdocument.getElementsByClassName(\'classe-generica\');\n\n\nConsiderando que temos alguns elementos com essa classe em nosso documento, ao declarar esse seletor (dentro de um console.log()), temos:');
+
+    console.log(document.getElementsByClassName('classe-generica'));
+
+    console.log('\n\nAssim como o seletor por tagName, esse seletor também traz um conjunto de elementos, então precisamos de um loop para acessar cada elemento retornado (por isso o seletor diz \'getElements\', no plural).\n\n\nVamos usar o loop \'for of\' para exibir cada resultado retornado:');
+
+    let elementosComAClasse = document.getElementsByClassName('classe-generica');
+
+    for(elementoComAClasse of elementosComAClasse) {
+
+        console.log(elementoComAClasse);
+
+    }
+
+
+    console.log('%c\n\nquerySelector\n\n', 'background-color:#ffb42a;color:#000000;font-size:24px;');
+
+    console.log('\n\nEsse seletor nos permite selecionar elementos por classe, id, tag ou até mesmo atributos - basta utilizar o símbolo de seleção apropriado (igual aos do CSS).\n\n\n\tdocument.querySelector(\'[title="titulo"]\');\n\n\nAo declarar esse seletor (dentro de um console.log()), temos:');
+
+    console.log(document.querySelector('[title="titulo"]'));
+
+    console.log('\n\nEsse seletor traz somente um resultado (se houver mais elementos que se enquadrem na seleção, será retornado o primeiro).\n\nApenas reforçando, podemos declarar o seletor com \'.\' para selecionarmos por classe, com \'#\' para selecionarmos por id ou apenas o nome da tag para selecionarmos por tag HTML.\n\n\n');
+
+
+    console.log('%c\n\nquerySelectorAll\n\n', 'background-color:#ffb42a;color:#000000;font-size:24px;');
+
+    console.log('\n\nEsse seletor funciona igualmente ao querySelector, mas traz um conjunto de resultados.\n\n\n\tdocument.querySelectorAll(\'.destaque\');\n\n\nConsiderando que temos um elemento com essa classe em nosso documento, ao declarar esse seletor e rodar um loop \'for of\' com o retorno, temos:');
+
+    let elementosComAClasseDestaque = document.querySelectorAll('.destaque');
+
+    for(elementoComAClasseDestaque of elementosComAClasseDestaque) {
+
+        console.log(elementoComAClasseDestaque);
+
+    }
 
 }
